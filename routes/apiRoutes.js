@@ -35,7 +35,22 @@ module.exports = function(app){
         })
     })
 
-  
+    app.put("/api/workouts/:id", function(req, res){
+        // console.log("here at put", req.params.id)
+        // console.log("the body", req.body)
+        Workout.findByIdAndUpdate(req.params.id, {
+            $push:{
+                // day: Date.now(),
+                exercises: req.body
+            }
+        })
+        .then(workout=>{
+            res.json(workout)
+        })
+        .catch(err=>{
+            res.json(err)
+        })
+    })
 }
 
 
