@@ -21,7 +21,20 @@ module.exports = function(app){
         })
     })
 
-  
+    app.post("/api/workouts", function({body}, res){
+        // console.log("here at post",body)
+
+        Workout.create(
+            {day: Date.now(), body}
+        )
+        .then(workout=>{
+            res.json(workout)
+        })
+        .catch(err=>{
+            res.json(err)
+        })
+    })
+
   
 }
 
