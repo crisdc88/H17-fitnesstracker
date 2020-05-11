@@ -55,6 +55,17 @@ module.exports = function(app){
             res.json(err)
         })
     })
+
+
+    app.get("/api/workouts/range", function(req, res){
+        // sort('day',-1)
+        Workout.find({}).then(allworkouts =>{
+           
+            console.log("api RANGE", allworkouts)  
+            res.json(allworkouts)
+            
+        })
+    })
 }
 
 
