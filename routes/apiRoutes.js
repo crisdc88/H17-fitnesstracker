@@ -10,6 +10,10 @@ module.exports = function(app){
         res.sendFile(Path.join(__dirname,"../public/exercise.html"));
     })
 
+    app.get("/stats", function(req, res){
+        // console.log(Path.join(__dirname,"../public/exercise.html"));
+        res.sendFile(Path.join(__dirname,"../public/stats.html"));
+    })
 
     app.get("/api/workouts", function(req, res){
         // sort('day',-1)
