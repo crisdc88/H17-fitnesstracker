@@ -3,7 +3,8 @@ var Schema = mongoose.Schema;
 
 var WorkoutSchema= new Schema(
     {
-      day: Date,
+      day: {type: Date},
+      totalDuration: {type: Number, default:0},
       exercises: [{
         type: {
             type: String,
@@ -37,8 +38,10 @@ var WorkoutSchema= new Schema(
             type: Date,
           }
 
-        }]
-    }
+        }],
+        
+    },
+    
 );
 
 const Workout = mongoose.model("Workout", WorkoutSchema);
